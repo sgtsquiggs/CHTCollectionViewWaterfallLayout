@@ -15,6 +15,8 @@
 @optional
 - (CGFloat)collectionView:(UICollectionView *)collectionView
   heightForHeaderInLayout:(CHTCollectionViewWaterfallLayout *)collectionViewLayout;
+- (CGSize)collectionView:(UICollectionView *)collectionView
+  sizeForHeaderInLayout:(CHTCollectionViewWaterfallLayout *)collectionViewLayout;
 - (CGFloat)collectionView:(UICollectionView *)collectionView
   heightForFooterInLayout:(CHTCollectionViewWaterfallLayout *)collectionViewLayout;
 @end

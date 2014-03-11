@@ -87,6 +87,14 @@ const int unionSize = 20;
                                                                    withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     _headerAttributes.frame = CGRectMake(_sectionInset.left, 0, width, headerHeight);
   }
+  if ([self.delegate respondsToSelector:@selector(collectionView:sizeForHeaderInLayout:)]) {
+    CGSize headerSize = [self.delegate collectionView: self.collectionView sizeForHeaderInLayout: self];
+    
+    _headerAttributes =
+    [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                 withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    _headerAttributes.frame = CGRectMake(0, 0, headerSize.width, headerSize.height);
+  }
 
   _interitemSpacing = floorf((width - _columnCount * _itemWidth) / (_columnCount - 1));
 
